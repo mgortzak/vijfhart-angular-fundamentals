@@ -1,10 +1,16 @@
-<div *ngFor="let person of persons">
-  <h2 (dblclick)="doubleClick($event, person.id)">De persoon {{person.firstName}} {{person.lastName}} is bereikbaar op
-    {{person.email}}.</h2>
-
-  Deze persoon heeft de volgende hobbies:
-  <ul>
-    <li *ngFor="let hobby of person.hobbies">{{hobby}}</li>
-  </ul>
-  <div *ngIf="person.hobbies.length > 3">Dat zijn veel hobbies!</div>
-</div>
+<table class="table-bordered">
+  <tr>
+    <th>Voornaam</th>
+    <th>Achternaam</th>
+    <th>E/mail</th>
+    <th>Hobbies</th>
+  </tr>
+  <tr *ngFor="let person of persons">
+    <td>{{person.lastName}}</td>
+    <td>{{person.firstName}}</td>
+    <td>{{person.email}}</td>
+    <td>
+      <div *ngFor="let hobby of person.hobbies">{{hobby}}</div>
+    </td>
+  </tr>
+</table>
