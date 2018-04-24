@@ -19,6 +19,8 @@ export class BotComponent implements OnInit {
     this.pietje.lastName = 'Puk';
     this.pietje.email = 'pietje@puk.nl';
     this.pietje.hobbies = ['gamen', 'lezen', 'schilderen', 'Netflix'];
+
+    this.pietje.hobbies.push('zwemmen')
   }
 
 }
