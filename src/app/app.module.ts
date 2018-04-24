@@ -15,7 +15,7 @@ import {HouseService} from "./services/house.service";
   imports: [
     BrowserModule
   ],
-  providers: [HouseService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {
