@@ -1,8 +1,9 @@
-<div>
-{{pietje.firstName}} {{pietje.lastName}}:
-<ul>
-  <li *ngFor="let hobby of pietje.hobbies">{{hobby}}</li>
-</ul>
-</div>
+<div *ngFor="let person of persons">
+  <h2>De persoon {{person.firstName}} {{person.lastName}} is bereikbaar op {{person.email}}.</h2>
 
-<div *ngIf="pietje.hobbies.length > 3">Dat zijn veel hobbies!</div>
+  Deze persoon heeft de volgende hobbies:
+  <ul>
+    <li *ngFor="let hobby of person.hobbies">{{hobby}}</li>
+  </ul>
+  <div *ngIf="person.hobbies.length > 3">Dat zijn veel hobbies!</div>
+</div>

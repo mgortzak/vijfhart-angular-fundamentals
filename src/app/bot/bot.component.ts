@@ -8,19 +8,17 @@ import {Person} from "../domain/person";
 })
 export class BotComponent implements OnInit {
 
-  pietje: Person;
+  persons: Person[];
 
   constructor() {
   }
 
   ngOnInit() {
-    this.pietje = new Person()
-    this.pietje.firstName = 'Pietje';
-    this.pietje.lastName = 'Puk';
-    this.pietje.email = 'pietje@puk.nl';
-    this.pietje.hobbies = ['gamen', 'lezen', 'schilderen', 'Netflix'];
-
-    this.pietje.hobbies.push('zwemmen')
+    this.persons = [
+      new Person('Pietje', 'Puk', 'pietje@puk.nl', ['gamen', 'lezen', 'schilderen', 'Netflix']),
+      new Person('Jantje', 'Beton', 'jantje@beton.nl', ['koken']),
+      new Person('Klaas', 'Vaak', 'klaas@vaak.nl', ['hardlopen', 'zwemmen'])
+    ]
   }
 
 }
