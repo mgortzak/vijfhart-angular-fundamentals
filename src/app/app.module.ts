@@ -4,7 +4,6 @@ import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
 import {BotComponent} from './bot/bot.component';
-import {HouseService} from "./services/house.service";
 
 
 @NgModule({
