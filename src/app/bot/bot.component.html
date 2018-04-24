@@ -1,5 +1,6 @@
 <div *ngFor="let person of persons">
-  <h2>De persoon {{person.firstName}} {{person.lastName}} is bereikbaar op {{person.email}}.</h2>
+  <h2 (dblclick)="doubleClick(person.id)">De persoon {{person.firstName}} {{person.lastName}} is bereikbaar op
+    {{person.email}}.</h2>
 
   Deze persoon heeft de volgende hobbies:
   <ul>

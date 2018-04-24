@@ -15,10 +15,22 @@ export class BotComponent implements OnInit {
 
   ngOnInit() {
     this.persons = [
-      new Person('Pietje', 'Puk', 'pietje@puk.nl', ['gamen', 'lezen', 'schilderen', 'Netflix']),
-      new Person('Jantje', 'Beton', 'jantje@beton.nl', ['koken']),
-      new Person('Klaas', 'Vaak', 'klaas@vaak.nl', ['hardlopen', 'zwemmen'])
+      new Person(1, 'Pietje', 'Puk', 'pietje@puk.nl', ['gamen', 'lezen', 'schilderen', 'Netflix']),
+      new Person(2, 'Jantje', 'Beton', 'jantje@beton.nl', ['koken']),
+      new Person(3, 'Klaas', 'Vaak', 'klaas@vaak.nl', ['hardlopen', 'zwemmen'])
     ]
+  }
+
+
+  // function zoekPersoon(person: Person)
+  // {
+  //   return true;
+  // }
+
+  doubleClick(id: number) {
+
+    let person = this.persons.find(p => p.id === id);
+    console.log('double click: ' + person.lastName);
   }
 
 }
