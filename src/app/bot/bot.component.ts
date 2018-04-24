@@ -19,11 +19,13 @@ export class BotComponent implements OnInit {
     this.pietje.firstName = 'Pietje';
     this.pietje.lastName = 'Puk';
     this.pietje.email = 'pietje@puk.nl';
+    this.pietje.hobbies = ['gamen', 'lezen'];
 
     this.jantje = new Person();
     this.jantje.firstName = 'Jantje';
     this.jantje.lastName = 'Beton';
     this.jantje.email = 'jantje@beton.nl';
+    this.jantje.hobbies = ['koken', 'spelen'];
 
     console.log(this.pietje);
     console.log(this.jantje);

@@ -1,4 +1,9 @@
-<p>
-  {{pietje.firstName}} {{pietje.lastName}} vs {{jantje.firstName}} {{jantje.lastName}}
+{{pietje.firstName}} {{pietje.lastName}}:
+<ul>
+  <li *ngFor="let hobby of pietje.hobbies">{{hobby}}</li>
+</ul>
 
-</p>
+{{jantje.firstName}} {{jantje.lastName}}:
+<ul>
+  <li *ngFor="let hobby of jantje.hobbies">{{hobby}}</li>
+</ul>
