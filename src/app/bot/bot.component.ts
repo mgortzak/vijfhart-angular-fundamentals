@@ -22,15 +22,13 @@ export class BotComponent implements OnInit {
   }
 
 
-  // function zoekPersoon(person: Person)
-  // {
-  //   return true;
-  // }
+  doubleClick(event: any, id: number) {
 
-  doubleClick(id: number) {
+    console.log(event.ctrlKey)
+    console.log(event.altKey)
+    console.log(event.shiftKey)
 
     let person = this.persons.find(p => p.id === id);
     console.log('double click: ' + person.lastName);
   }
-
 }
