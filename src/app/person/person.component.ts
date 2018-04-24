@@ -2,11 +2,11 @@ import {Component, OnInit} from '@angular/core';
 import {Person} from "../domain/person";
 
 @Component({
-  selector: 'app-bot',
-  templateUrl: './bot.component.html',
-  styleUrls: ['./bot.component.css']
+  selector: 'app-person',
+  templateUrl: './person.component.html',
+  styleUrls: ['./person.component.css']
 })
-export class BotComponent implements OnInit {
+export class PersonComponent implements OnInit {
 
   persons: Person[];
 

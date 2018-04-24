@@ -3,13 +3,13 @@ import {NgModule} from '@angular/core';
 
 
 import {AppComponent} from './app.component';
-import {BotComponent} from './bot/bot.component';
+import {PersonComponent} from './person/person.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    BotComponent
+    PersonComponent
   ],
   imports: [
     BrowserModule
