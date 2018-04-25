@@ -44,8 +44,17 @@ export class PersonComponent implements OnInit {
   }
 
   add() {
-    console.log(this.newPerson.hobbies)
-    this.persons.push(new Person(PersonComponent.generateId(), this.newPerson.firstName, this.newPerson.lastName, this.newPerson.email, []))
+    this.persons.push(new Person(PersonComponent.generateId(), this.newPerson.firstName, this.newPerson.lastName, this.newPerson.email, this.newPerson.hobbies))
+
+    this.newPerson = new Person()
+  }
+
+  addHobby() {
+    this.newPerson.hobbies.push('')
+  }
+
+  trackHobbies(index, item) {
+    return index
   }
 
   private static generateId() {

@@ -18,21 +18,41 @@
 </table>
 
 <div>
-  Voeg een persoon toe:
-  <form>
-    <p>
-      Voornaam: <input type="text" class="input-lg" name="firstName" title="Voornaam"
-                       [(ngModel)]="newPerson.firstName"/><br/>
-      Achternaam: <input type="text" class="input-lg" name="lastName" title="Achternaam"
-                         [(ngModel)]="newPerson.lastName"/><br/>
-      E-mail: <input type="text" class="input-lg" name="email" title="Voornaam" [(ngModel)]="newPerson.email"/><br/>
-      <!--Hobbies: <input type="text" class="input-lg" name="hobbies" title="Hobbies" [(ngModel)]="newPerson.hobbies"/>-->
-    </p>
+  Voeg een persoon toe:<br/>
+  Voornaam: <input type="text"
+                   class="input-lg"
+                   name="firstName"
+                   title="Voornaam"
+                   [(ngModel)]="newPerson.firstName"/><br/>
 
-    <p>
-      <input type="button" class="ui-button" name="add" (click)="add()" value="Toevoegen"/>
-    </p>
-  </form>
+  Achternaam: <input type="text"
+                     class="input-lg"
+                     name="lastName"
+                     title="Achternaam"
+                     [(ngModel)]="newPerson.lastName"/><br/>
+
+  E-mail: <input type="text"
+                 class="input-lg"
+                 name="email"
+                 title="Voornaam"
+                 [(ngModel)]="newPerson.email"/><br/>
+
+
+  Hobbies: <br/>
+  <div *ngFor="let hobby of newPerson.hobbies; let i = index; trackBy:trackHobbies;">
+    <input type="text"
+           name="hobby_{{i}}"
+           title="Hobby #{{i}}"
+           [(ngModel)]="newPerson.hobbies[i]"
+    />
+    <br/>
+  </div>
+
+  <input type="button" class="ui-button" name="add_hobby" (click)="addHobby()" value="Toevoegen Hobby"/>
+
+  <p>
+    <input type="button" class="ui-button" name="add" (click)="add()" value="Toevoegen"/>
+  </p>
 </div>
 <div>
   <div>Zoek: <input type="text" class="input-lg" [(ngModel)]="gekozenNaam" (keyup)="search($event)"/></div>
