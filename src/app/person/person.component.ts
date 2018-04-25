@@ -10,6 +10,10 @@ export class PersonComponent implements OnInit {
 
   persons: Person[];
 
+  gekozenNaam: string = '';
+  isVisible: boolean = false;
+  currentPerson: Person = new Person();
+
   constructor() {
   }
 
@@ -21,14 +25,19 @@ export class PersonComponent implements OnInit {
     ]
   }
 
+  search(event: any) {
+    if (event.ctrlKey && event.key == 'Enter') {
+      console.log(event.target.value)
 
-  doubleClick(event: any, id: number) {
-
-    console.log(event.ctrlKey)
-    console.log(event.altKey)
-    console.log(event.shiftKey)
-
-    let person = this.persons.find(p => p.id === id);
-    console.log('double click: ' + person.lastName);
+      let person = this.persons.find(p => p.lastName === event.target.value);
+      if (person != null) {
+        this.currentPerson = person
+        this.isVisible = true
+      }
+      else {
+        this.currentPerson = new Person()
+        this.isVisible = false;
+      }
+    }
   }
 }

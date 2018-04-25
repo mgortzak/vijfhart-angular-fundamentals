@@ -16,3 +16,8 @@
     </td>
   </tr>
 </table>
+
+<div>
+  <input type="text" class="input-lg" [(ngModel)]="gekozenNaam" (keyup)="search($event)"/>
+  <div [hidden]="!isVisible">Gekozen persoon: {{currentPerson.firstName}} {{currentPerson.lastName}}</div>
+</div>
