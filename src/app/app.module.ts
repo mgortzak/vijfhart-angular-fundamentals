@@ -4,7 +4,6 @@ import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
 import {PersonComponent} from './person/person.component';
-import {AddPersonComponent} from './add-person/add-person.component';
 import {FormsModule} from "@angular/forms";
 
 
@@ -12,7 +11,6 @@ import {FormsModule} from "@angular/forms";
   declarations: [
     AppComponent,
     PersonComponent,
-    AddPersonComponent
   ],
   imports: [
     BrowserModule, FormsModule

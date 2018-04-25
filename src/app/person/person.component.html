@@ -8,8 +8,8 @@
   </tr>
   <tr *ngFor="let person of persons">
     <td>{{person.id}}</td>
-    <td>{{person.lastName}}</td>
     <td>{{person.firstName}}</td>
+    <td>{{person.lastName}}</td>
     <td>{{person.email}}</td>
     <td>
       <div *ngFor="let hobby of person.hobbies">{{hobby}}</div>
@@ -17,6 +17,23 @@
   </tr>
 </table>
 
+<div>
+  Voeg een persoon toe:
+  <form>
+    <p>
+      Voornaam: <input type="text" class="input-lg" name="firstName" title="Voornaam"
+                       [(ngModel)]="newPerson.firstName"/><br/>
+      Achternaam: <input type="text" class="input-lg" name="lastName" title="Achternaam"
+                         [(ngModel)]="newPerson.lastName"/><br/>
+      E-mail: <input type="text" class="input-lg" name="email" title="Voornaam" [(ngModel)]="newPerson.email"/><br/>
+      <!--Hobbies: <input type="text" class="input-lg" name="hobbies" title="Hobbies" [(ngModel)]="newPerson.hobbies"/>-->
+    </p>
+
+    <p>
+      <input type="button" class="ui-button" name="add" (click)="add()" value="Toevoegen"/>
+    </p>
+  </form>
+</div>
 <div>
   <div>Zoek: <input type="text" class="input-lg" [(ngModel)]="gekozenNaam" (keyup)="search($event)"/></div>
   <div [hidden]="!isVisible">Gekozen persoon: {{currentPerson.firstName}} {{currentPerson.lastName}}</div>

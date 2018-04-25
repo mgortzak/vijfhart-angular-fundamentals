@@ -14,14 +14,16 @@ export class PersonComponent implements OnInit {
   isVisible: boolean = false;
   currentPerson: Person = new Person();
 
+  newPerson: Person = new Person();
+
   constructor() {
   }
 
   ngOnInit() {
     this.persons = [
-      new Person(1, 'Pietje', 'Puk', 'pietje@puk.nl', ['gamen', 'lezen', 'schilderen', 'Netflix']),
-      new Person(2, 'Jantje', 'Beton', 'jantje@beton.nl', ['koken']),
-      new Person(3, 'Klaas', 'Vaak', 'klaas@vaak.nl', ['hardlopen', 'zwemmen'])
+      new Person(PersonComponent.generateId(), 'Pietje', 'Puk', 'pietje@puk.nl', ['gamen', 'lezen', 'schilderen', 'Netflix']),
+      new Person(PersonComponent.generateId(), 'Jantje', 'Beton', 'jantje@beton.nl', ['koken']),
+      new Person(PersonComponent.generateId(), 'Klaas', 'Vaak', 'klaas@vaak.nl', ['hardlopen', 'zwemmen'])
     ]
   }
 
@@ -39,5 +41,14 @@ export class PersonComponent implements OnInit {
         this.isVisible = false;
       }
     }
+  }
+
+  add() {
+    console.log(this.newPerson.hobbies)
+    this.persons.push(new Person(PersonComponent.generateId(), this.newPerson.firstName, this.newPerson.lastName, this.newPerson.email, []))
+  }
+
+  private static generateId() {
+    return Math.floor((Math.random() * 100000) + 1);
   }
 }
