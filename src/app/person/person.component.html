@@ -1,11 +1,13 @@
 <table class="table-bordered">
   <tr>
+    <th>ID</th>
     <th>Voornaam</th>
     <th>Achternaam</th>
     <th>E/mail</th>
     <th>Hobbies</th>
   </tr>
   <tr *ngFor="let person of persons">
+    <td>{{person.id}}</td>
     <td>{{person.lastName}}</td>
     <td>{{person.firstName}}</td>
     <td>{{person.email}}</td>
