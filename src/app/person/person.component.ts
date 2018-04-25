@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Person} from '../model/person.model';
+import {PersonService} from "../service/person.service";
 
 @Component({
   selector: 'app-person',
@@ -8,30 +9,25 @@ import {Person} from '../model/person.model';
 })
 export class PersonComponent implements OnInit {
 
-  persons: Person[];
-
+  persons: Person[]
   gekozenNaam: string = '';
   isVisible: boolean = false;
   currentPerson: Person = new Person();
 
   newPerson: Person = new Person();
 
-  constructor() {
+  constructor(private personService: PersonService) {
   }
 
   ngOnInit() {
-    this.persons = [
-      new Person(PersonComponent.generateId(), 'Pietje', 'Puk', 'pietje@puk.nl', ['gamen', 'lezen', 'schilderen', 'Netflix']),
-      new Person(PersonComponent.generateId(), 'Jantje', 'Beton', 'jantje@beton.nl', ['koken']),
-      new Person(PersonComponent.generateId(), 'Klaas', 'Vaak', 'klaas@vaak.nl', ['hardlopen', 'zwemmen'])
-    ]
+    this.persons = this.personService.getPersons()
   }
 
   search(event: any) {
     if (event.ctrlKey && event.key == 'Enter') {
       console.log(event.target.value)
 
-      let person = this.persons.find(p => p.lastName === event.target.value);
+      let person = this.personService.getPersonByLastName(event.target.value);
       if (person != null) {
         this.currentPerson = person
         this.isVisible = true
@@ -44,8 +40,7 @@ export class PersonComponent implements OnInit {
   }
 
   add() {
-    this.persons.push(new Person(PersonComponent.generateId(), this.newPerson.firstName, this.newPerson.lastName, this.newPerson.email, this.newPerson.hobbies))
-
+    this.personService.addPerson(this.newPerson)
     this.newPerson = new Person()
   }
 
@@ -55,9 +50,5 @@ export class PersonComponent implements OnInit {
 
   trackHobbies(index, item) {
     return index
-  }
-
-  private static generateId() {
-    return Math.floor((Math.random() * 100000) + 1);
   }
 }
