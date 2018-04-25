@@ -12,7 +12,7 @@
     <td>{{person.lastName}}</td>
     <td>{{person.email}}</td>
     <td>
-      <div *ngFor="let hobby of person.hobbies">{{hobby}}</div>
+      <div *ngFor="let hobby of person.hobbies">{{hobby.name}}</div>
     </td>
   </tr>
 </table>
@@ -43,7 +43,7 @@
     <input type="text"
            name="hobby_{{i}}"
            title="Hobby #{{i}}"
-           [(ngModel)]="newPerson.hobbies[i]"
+           [(ngModel)]="newPerson.hobbies[i].name"
     />
     <br/>
   </div>

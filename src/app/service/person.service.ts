@@ -1,14 +1,26 @@
 import {Injectable} from '@angular/core';
 import {Person} from "../model/person.model";
+import {Hobby} from "../model/hobby.model";
+import {Database} from "../helper/database.helper";
 
 @Injectable()
 export class PersonService {
 
   private persons: Person[] = [
-    new Person(PersonService.generateId(), 'Pietje', 'Puk', 'pietje@puk.nl', ['gamen', 'lezen', 'schilderen', 'Netflix']),
-    new Person(PersonService.generateId(), 'Jantje', 'Beton', 'jantje@beton.nl', ['koken']),
-    new Person(PersonService.generateId(), 'Klaas', 'Vaak', 'klaas@vaak.nl', ['hardlopen', 'zwemmen'])
-  ]
+    new Person(Database.generateId(), 'Pietje', 'Puk', 'pietje@puk.nl', [
+      new Hobby(Database.generateId(), 'gamen'),
+      new Hobby(Database.generateId(), 'Netflix'),
+      new Hobby(Database.generateId(), 'programmeren'),
+      new Hobby(Database.generateId(), 'lezen'),
+    ]),
+    new Person(Database.generateId(), 'Jantje', 'Beton', 'jantje@beton.nl', [
+      new Hobby(Database.generateId(), 'koken')
+    ]),
+    new Person(Database.generateId(), 'Klaas', 'Vaak', 'klaas@vaak.nl', [
+      new Hobby(Database.generateId(), 'hardlopen'),
+      new Hobby(Database.generateId(), 'zwemmen')
+    ])
+  ];
 
   constructor() {
   }
@@ -22,13 +34,9 @@ export class PersonService {
   }
 
   addPerson(person: Person) {
-    person.id = PersonService.generateId()
-
+    person.id = Database.generateId();
     this.persons.push(person)
   }
 
 
-  private static generateId() {
-    return Math.floor((Math.random() * 100000) + 1);
-  }
 }

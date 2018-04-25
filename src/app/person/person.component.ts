@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Person} from '../model/person.model';
 import {PersonService} from "../service/person.service";
+import {Hobby} from "../model/hobby.model";
+import {Database} from "../helper/database.helper";
 
 @Component({
   selector: 'app-person',
@@ -45,7 +47,7 @@ export class PersonComponent implements OnInit {
   }
 
   addHobby() {
-    this.newPerson.hobbies.push('')
+    this.newPerson.hobbies.push(new Hobby(Database.generateId(), ''))
   }
 
   trackHobbies(index, item) {
